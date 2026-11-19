@@ -1,0 +1,101 @@
+<!doctype html>
+<html lang="fr">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#09090d">
+  <title>TikTok Growth — Dashboard</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="./styles.css">
+  <script defer src="./app.js"></script>
+  <link rel="manifest" href="./manifest.webmanifest">
+  <link rel="apple-touch-icon" href="./icons/icon-192.png">
+</head>
+<body>
+  <div class="shell">
+    <aside class="sidebar">
+      <div class="brand"><span class="brand-mark">T</span><span>GROWTH<span class="muted">.LAB</span></span></div>
+      <div class="side-label">ESPACE CRÉATEUR</div>
+      <a class="nav active" href="#overview">▦ <span>Vue d'ensemble</span></a>
+      <a class="nav" href="#videos">▶ <span>Mes vidéos</span></a>
+      <a class="nav" href="#ideas">✳ <span>Idées & hashtags</span></a>
+      <div class="sidebar-note"><span class="pulse"></span> Tableau de bord local</div>
+      <div class="side-footer">GROWTH.LAB <span>VERSION 1.0</span></div>
+    </aside>
+
+    <main class="main" id="overview">
+      <header class="topbar">
+        <div><div class="eyebrow">ANALYTICS / TIKTOK</div><h1>Vue d'ensemble</h1></div>
+        <div class="profile-chip"><span class="avatar">T</span><span id="usernameTop">@ton_compte</span></div>
+      </header>
+
+      <section class="welcome">
+        <div><div class="eyebrow pink">TON ESPACE DE CROISSANCE</div><h2>Construis ta communauté.</h2><p>Observe tes statistiques, repère les tendances et améliore tes prochaines vidéos.</p></div>
+        <div class="welcome-orb">↗</div>
+      </section>
+
+      <section class="metrics">
+        <article class="metric-card"><div class="metric-head">ABONNÉS <span>◎</span></div><div class="metric-value" id="followers">—</div><div class="metric-foot">Total actuel saisi</div></article>
+        <article class="metric-card"><div class="metric-head">ABONNEMENTS <span>⇄</span></div><div class="metric-value" id="following">—</div><div class="metric-foot">Comptes suivis</div></article>
+        <article class="metric-card"><div class="metric-head">J'AIME <span>♡</span></div><div class="metric-value" id="likes">—</div><div class="metric-foot">Total indiqué sur le profil</div></article>
+        <article class="metric-card accent-card"><div class="metric-head">VUES ENREGISTRÉES <span>◉</span></div><div class="metric-value" id="views">—</div><div class="metric-foot">Sur les vidéos ajoutées ici</div></article>
+      </section>
+
+      <section class="content-grid">
+        <article class="panel chart-panel">
+          <div class="panel-title"><div><div class="eyebrow">ÉVOLUTION</div><h3>Historique des abonnés</h3></div><span class="tag">30 derniers points</span></div>
+          <div class="chart-wrap"><div id="growthChart" class="chart-fallback">Ajoute plusieurs relevés pour suivre ton évolution.</div></div>
+        </article>
+        <article class="panel">
+          <div class="panel-title"><div><div class="eyebrow">MISE À JOUR</div><h3>Profil</h3></div><span class="icon-bubble">✎</span></div>
+          <form id="profileForm" class="form">
+            <label>Nom du compte<input id="username" maxlength="40" required></label>
+            <label>Nombre d'abonnés<input id="profileFollowers" type="number" min="0" max="1000000000" required></label>
+            <label>Abonnements<input id="profileFollowing" type="number" min="0" max="1000000000" required></label>
+            <label>J'aime totaux<input id="profileLikes" type="number" min="0" max="1000000000" required></label>
+            <button class="button primary" type="submit">Enregistrer les statistiques</button>
+          </form>
+        </article>
+      </section>
+
+      <section class="content-grid lower" id="videos">
+        <article class="panel">
+          <div class="panel-title"><div><div class="eyebrow">CONTENU</div><h3>Vidéos suivies</h3></div><span class="tag" id="videoCount">0 vidéo</span></div>
+          <div class="table-scroll"><table><thead><tr><th>VIDÉO</th><th>VUES</th><th>J'AIME</th><th>COMMENTAIRES</th><th></th></tr></thead><tbody id="videoRows"></tbody></table></div>
+        </article>
+        <article class="panel" id="ideas">
+          <div class="panel-title"><div><div class="eyebrow">AJOUT RAPIDE</div><h3>Ajouter une vidéo</h3></div><span class="icon-bubble">＋</span></div>
+          <form id="videoForm" class="form">
+            <label>Titre<input id="videoTitle" maxlength="100" placeholder="Ex. Mon nouveau montage" required></label>
+            <div class="form-two">
+              <label>Vues<input id="videoViews" type="number" min="0" required></label>
+              <label>J'aime<input id="videoLikes" type="number" min="0" required></label>
+            </div>
+            <div class="form-two">
+              <label>Commentaires<input id="videoComments" type="number" min="0" required></label>
+              <label>Date<input id="videoDate" type="date" required></label>
+            </div>
+            <button class="button primary" type="submit">Ajouter la vidéo</button>
+          </form>
+        </article>
+      </section>
+
+      <section class="panel hashtag-panel">
+        <div class="panel-title"><div><div class="eyebrow">INSPIRATION</div><h3>Idées de hashtags</h3></div><span class="tag">À adapter à ton contenu</span></div>
+        <div class="hashtags">
+          <button class="hashtag" data-copy="#PourToi">#PourToi</button>
+          <button class="hashtag" data-copy="#TikTokFrance">#TikTokFrance</button>
+          <button class="hashtag" data-copy="#Createur">#Createur</button>
+          <button class="hashtag" data-copy="#NouveauContenu">#NouveauContenu</button>
+          <button class="hashtag" data-copy="#Tendance">#Tendance</button>
+        </div>
+        <p class="hint">Les hashtags ne garantissent pas des vues. Choisis ceux qui décrivent réellement ta vidéo.</p>
+      </section>
+      <footer>GROWTH.LAB · Prototype indépendant · Non affilié à TikTok</footer>
+      <div id="toast" class="toast" role="status" aria-live="polite"></div>
+    </main>
+  </div>
+</body>
+</html>
